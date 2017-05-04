@@ -72,3 +72,5 @@ We could also use ExaBGP or GoBGP twice but that wouldn't be fun, would it? Now 
 * `sudo env exabgp.tcp.bind="127.0.0.1" exabgp.tcp.port=1001 sudo /opt/exabgp/sbin/exabgp router-exabgp.conf`
 
 6. Finish! You have two routers talking to each other set up in an IBGP configuration. Of course, there are is no actual data in the system yet. For fun, try `gobgp global rib add 10.10.0.0/16 -a ipv4` and see what the ExaBGP router does.
+
+*Note: If you try to setup GoBGP <--> GoBGP you have to change more ports since GoBGP uses more ports (GRPC: 50051, Some other which I forgot. Check with `netstat -tpl`*
